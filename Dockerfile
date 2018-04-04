@@ -1,5 +1,8 @@
-ARG  BASE_TAG=7-stackbase-devtoolset-6
-FROM lsstsqre/centos:${BASE_TAG}
+# docker-workflow 1.15.1 can not handle this. See:
+# https://issues.jenkins-ci.org/browse/JENKINS-46105
+#ARG  BASE_TAG=7-stackbase-devtoolset-6
+#FROM lsstsqre/centos:${BASE_TAG}
+FROM lsstsqre/centos:7-stackbase-devtoolset-6
 
 ARG LSST_PYTHON_VERSION=3
 ARG NEW_DIR=/opt/lsst/software/stack
