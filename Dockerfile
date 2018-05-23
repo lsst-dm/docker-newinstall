@@ -18,4 +18,5 @@ RUN chown "${LSST_USER}:${LSST_USER}" "$NEW_DIR"
 USER $LSST_USER
 WORKDIR $NEW_DIR
 
-RUN curl -sSL https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh | bash -s -- -cbtS
+RUN . /opt/rh/devtoolset-6/enable \
+    && curl -sSL https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh | bash -s -- -cbtS
