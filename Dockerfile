@@ -7,6 +7,7 @@ FROM lsstsqre/centos:7-stackbase-devtoolset-6
 ARG LSST_PYTHON_VERSION=3
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
+ARG NEWINSTALL_URL=https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh
 
 USER root
 
@@ -20,4 +21,4 @@ WORKDIR $NEW_DIR
 
 SHELL ["/bin/bash", "-lc"]
 
-RUN curl -sSL https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh | bash -s -- -cbtS
+RUN curl -sSL "$NEWINSTALL_URL" | bash -s -- -cbtS
