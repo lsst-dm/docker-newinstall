@@ -20,6 +20,7 @@ RUN chown "${LSST_USER}:${LSST_USER}" "$NEW_DIR"
 USER $LSST_USER
 WORKDIR $NEW_DIR
 
-SHELL ["/bin/bash", "-lc"]
-
+SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
 RUN curl -sSL "$NEWINSTALL_URL" | bash -s -- -cbtS
+
+SHELL ["/bin/bash", "-lc"]
