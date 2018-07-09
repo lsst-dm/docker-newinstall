@@ -8,7 +8,7 @@ ARG LSST_PYTHON_VERSION=3
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
 ARG NEWINSTALL_URL=https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh
-ARG EUPS_PKGROOT_BASE_URL=https://eups.lsst.codes/stack
+ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.codes/stack
 
 USER root
 
@@ -20,6 +20,7 @@ RUN chown "${LSST_USER}:${LSST_USER}" "$NEW_DIR"
 USER $LSST_USER
 WORKDIR $NEW_DIR
 
-SHELL ["/bin/bash", "-lc"]
-
+SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
 RUN curl -sSL "$NEWINSTALL_URL" | bash -s -- -cbtS
+
+SHELL ["/bin/bash", "-lc"]
