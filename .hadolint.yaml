@@ -6,3 +6,5 @@ ignored:
   - DL3018
   # disable following sourced files
   - SC1091
+  # disable tag in base image -- hadolint doesn't like ARGS in FROM?
+  - DL3006
