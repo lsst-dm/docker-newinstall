@@ -5,6 +5,7 @@
 ARG BASE_IMAGE=lsstsqre/centos:7-stackbase-devtoolset-6
 FROM $BASE_IMAGE
 
+ARG LSST_SPLENV_REF
 ARG LSST_PYTHON_VERSION=3
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
