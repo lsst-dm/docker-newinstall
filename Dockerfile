@@ -2,7 +2,7 @@
 # https://issues.jenkins-ci.org/browse/JENKINS-46105
 #ARG  BASE_TAG=7-stackbase-devtoolset-6
 #FROM lsstsqre/centos:${BASE_TAG}
-ARG BASE_IMAGE=lsstsqre/centos:7-stackbase-devtoolset-6
+ARG BASE_IMAGE=lsstsqre/centos:7-stackbase-devtoolset-8
 FROM $BASE_IMAGE
 
 ARG LSST_SPLENV_REF
