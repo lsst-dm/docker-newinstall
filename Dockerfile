@@ -14,9 +14,6 @@ ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.codes/stack
 
 USER root
 
-RUN source ./loadLSST.bash
-RUN conda install -y -c conda-forge prmon
-
 RUN mkdir -p "$NEW_DIR"
 RUN groupadd "$LSST_USER"
 RUN useradd -g "$LSST_USER" -m "$LSST_USER"
@@ -27,5 +24,8 @@ WORKDIR $NEW_DIR
 
 SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
 RUN curl -sSL "$NEWINSTALL_URL" | bash -s -- -cbtS
+
+RUN source ./loadLSST.bash
+RUN conda install -y -c conda-forge prmon
 
 SHELL ["/bin/bash", "-lc"]
