@@ -18,6 +18,6 @@ USER $LSST_USER
 WORKDIR $NEW_DIR
 
 SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
-RUN curl -sSL "$NEWINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
+RUN curl -sSL "$LSSTINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
 
 SHELL ["/bin/bash", "-lc"]

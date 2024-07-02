@@ -40,8 +40,8 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ matrix.rhel }}-${{ inputs.base_tag }}-${{ inputs.rubin_env }}
           file: Dockerfile
-          build-args:
-          - LSST_SPLENV_REF=${{ inputs.rubin_env }}
-          - BASE_IMAGE=ghcr.io/lsst-dm/docker-scipipe:${{ matrix.rhel }}-${{ inputs.base_tag }}
+          build-args: |
+            LSST_SPLENV_REF=${{ inputs.rubin_env }}
+            BASE_IMAGE=ghcr.io/lsst-dm/docker-scipipe:${{ matrix.rhel }}-${{ inputs.base_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
