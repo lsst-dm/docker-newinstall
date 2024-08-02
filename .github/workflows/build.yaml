@@ -6,7 +6,7 @@ on:
       rubin_env:
         description: "rubin-env version"
         required: true
-        default: "8.0.0"
+        default: "9.0.0"
         type: string
       base_tag:
         description: "Base container tag suffix"
@@ -43,5 +43,4 @@ jobs:
           build-args: |
             LSST_SPLENV_REF=${{ inputs.rubin_env }}
             BASE_IMAGE=ghcr.io/lsst-dm/docker-scipipe:${{ matrix.rhel }}-${{ inputs.base_tag }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          no-cache: true
