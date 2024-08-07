@@ -18,6 +18,10 @@ USER $LSST_USER
 WORKDIR $NEW_DIR
 
 SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
-RUN curl -sSL "$LSSTINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
-
+RUN <<EOF
+  set -e
+  curl -sSL "$LSSTINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
+  source ./loadLSST.sh
+  conda clean -a -y
+EOF
 SHELL ["/bin/bash", "-lc"]
