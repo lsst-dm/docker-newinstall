@@ -7,5 +7,5 @@ Usage
 ---
 
 ```sh
-docker run -ti lsstsqre/newinstall
+docker run -ti ghcr.io/lsst-dm/docker-newinstall
 ```
