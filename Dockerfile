@@ -4,7 +4,7 @@ FROM $BASE_IMAGE
 ARG LSST_SPLENV_REF
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
-ARG LSSTINSTALL_URL=https://ls.st/lsstinstall
+ARG LSSTINSTALL_URL=https://raw.githubusercontent.com/lsst/lsst/refs/heads/tickets/DM-46554/scripts/lsstinstall
 ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.codes/stack
 
 USER root
@@ -13,15 +13,13 @@ RUN mkdir -p "$NEW_DIR"
 RUN groupadd "$LSST_USER"
 RUN useradd -g "$LSST_USER" -m "$LSST_USER"
 RUN chown "${LSST_USER}:${LSST_USER}" "$NEW_DIR"
+RUN echo
 
 USER $LSST_USER
 WORKDIR $NEW_DIR
 
 SHELL ["/bin/bash", "-o", "pipefail", "-lc"]
-RUN <<EOF
-  set -e
-  curl -sSL "$LSSTINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
-  source ./loadLSST.sh
-  conda clean -a -y
-EOF
+RUN curl -sSL "$LSSTINSTALL_URL" | bash -s -- -S -v ${LSST_SPLENV_REF}
+RUN . loadLSST.sh && conda clean -a -y
+
 SHELL ["/bin/bash", "-lc"]
