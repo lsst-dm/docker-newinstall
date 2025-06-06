@@ -5,7 +5,7 @@ ARG LSST_SPLENV_REF
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
 ARG LSSTINSTALL_URL=https://ls.st/lsstinstall
-ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.codes/stack
+ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.cloud/stack
 
 USER root
 
