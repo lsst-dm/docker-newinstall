@@ -6,7 +6,7 @@ on:
       rubin_env:
         description: "rubin-env version"
         required: true
-        default: "10.1.0"
+        default: "11.0.0"
         type: string
       base_tag:
         description: "Base container tag suffix"
