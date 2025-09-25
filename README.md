@@ -1,7 +1,7 @@
 docker-newinstall
 ===
 
-A simple docker image build of [newinstall.sh](https://github.com/lsst/lsst).
+A simple docker image build of [lsstinstall.sh](https://github.com/lsst/lsst).
 
 Usage
 ---
