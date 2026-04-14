@@ -6,7 +6,7 @@ on:
       rubin_env:
         description: "rubin-env version"
         required: true
-        default: "12.1.0"
+        default: "4.0.5"
         type: string
       base_tag:
         description: "Base container tag suffix"
@@ -28,7 +28,7 @@ jobs:
         uses: lsst-dm/build-and-push@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tag: ${{ matrix.rhel }}-${{ inputs.base_tag }}-${{ inputs.rubin_env }}
           build-args: |
