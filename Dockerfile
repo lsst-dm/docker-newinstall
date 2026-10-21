@@ -4,7 +4,7 @@ FROM $BASE_IMAGE
 ARG LSST_SPLENV_REF
 ARG NEW_DIR=/opt/lsst/software/stack
 ARG LSST_USER=lsst
-ARG LSSTINSTALL_URL=https://ls.st/lsstinstall
+ARG LSSTINSTALL_URL=https://raw.githubusercontent.com/lsst/lsst/refs/heads/main/scripts/lsstinstall
 ARG LSST_EUPS_PKGROOT_BASE_URL=https://eups.lsst.cloud/stack
 
 USER root
